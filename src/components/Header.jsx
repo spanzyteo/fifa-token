@@ -8,7 +8,7 @@ import fifa from '../assets/fifa-word.png'
 
 const Header = () => {
   return (
-    <div className="px-10 md:px-20 py-3 flex flex-row justify-between items-center bg-yellow-400 ">
+    <div className="px-10 md:px-20 py-2 flex flex-row justify-between items-center bg-yellow-400 ">
       <div className='flex items-center'>
         <img className=' h-20 w-20' src={logo} alt="logo" />
         <img className='h-12 md:16 w-25 ml-10 md:ml-0' src={fifa} alt="" />

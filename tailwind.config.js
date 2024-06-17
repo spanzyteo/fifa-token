@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Montserrat", "sans-serif"]
-      }
+        sans: ['Montserrat', 'sans-serif'],
+      },
+      backgroundImage: {
+        myImage: "url('./src/assets/fifa-wallpaper.png')",
+      },
     },
   },
   plugins: [],
