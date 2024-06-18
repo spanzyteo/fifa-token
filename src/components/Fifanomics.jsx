@@ -8,7 +8,7 @@ const Fifanomics = () => {
       </h1>
       <div className="flex flex-col md:flex-row justify-between items-center px-2 md:px-36">
         <div className="py-7 flex flex-col md:flex-row mt-4 md:mt-12 items-center justify-between">
-          <img src={ronaldo} alt="ronaldo" className="md:h-[35rem]" />
+          <img src={ronaldo} alt="ronaldo" className="md:h-[32rem] w-[36rem]" />
         </div>
         <h1 className="uppercase block md:hidden font-bold text-4xl text-white text-center mt-4">
           Fifanomics

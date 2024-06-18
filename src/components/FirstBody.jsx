@@ -55,8 +55,8 @@ const FirstBody = () => {
           </div>
         </div>
       </div>
-      <div className='relative flex items-center justify-center md:mt-[-2rem] mt-[-3rem]'>
-        <div className=" flex flex-wrap h-[50px] bg-yellow-400 overflow-hidden marquee-container w-[101%] py-2 absolute -rotate-12 md:-rotate-6">
+      <div className="relative flex items-center justify-center md:mt-[-8rem] mt-[-3rem]">
+        <div className=" flex h-[50px] bg-yellow-400 overflow-hidden marquee-container w-[101%] py-2 absolute -rotate-12 md:-rotate-6">
           <p className="marquee-text font-bold text-3xl">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
@@ -76,7 +76,7 @@ const FirstBody = () => {
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
         </div>
-        <img src={logo} alt="logo" className='h-40 w-40 z-10' />
+        <img src={logo} alt="logo" className="md:h-[350px] h-40 md:w-[350px] w-40 z-10" />
       </div>
     </>
   )

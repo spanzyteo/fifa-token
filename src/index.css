@@ -17,9 +17,9 @@ body {
 
 .marquee-text {
   white-space: nowrap;
-  padding: 0 2rem;
+  padding: 0 6rem;
   letter-spacing: 1px;
-  animation: scroll 6000ms linear infinite;
+  animation: scroll 4000ms linear infinite;
 }
 
 @keyframes scroll {
