@@ -8,21 +8,15 @@ import fifa from '../assets/fifa-word.png'
 
 const Header = () => {
   return (
-    <div className="px-10 md:px-20 py-2 flex flex-row justify-between items-center bg-yellow-400 ">
-      <div className='flex items-center'>
-        <img className=' h-20 w-20' src={logo} alt="logo" />
-        <img className='h-12 md:16 w-25 ml-10 md:ml-0' src={fifa} alt="" />
+    <div className="px-2 md:px-10 py-2 flex flex-row justify-between items-center bg-yellow-400 ">
+      <div className="flex items-center">
+        <img className=" h-16 sm:h-20 w-16 md:w-20" src={logo} alt="logo" />
+        <h1 className="font-sans ml-0 sm:ml-4 uppercase font-bold text-4xl">FIFA</h1>
       </div>
       <div className="md:flex flex-row hidden gap-8">
-        <h1 className="font-sans uppercase font-bold text-2xl">
-          About
-        </h1>
-        <h1 className="font-sans uppercase font-bold text-2xl">
-          Roadmap
-        </h1>
-        <h1 className="font-sans uppercase font-bold text-2xl">
-          Lorem
-        </h1>
+        <h1 className="font-sans uppercase font-bold text-2xl">About</h1>
+        <h1 className="font-sans uppercase font-bold text-2xl">Roadmap</h1>
+        <h1 className="font-sans uppercase font-bold text-2xl">Lorem</h1>
       </div>
       <div className="block md:hidden">
         <IoMenuSharp className="h-12 w-12 cursor-pointer hover:opacity-60" />
