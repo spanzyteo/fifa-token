@@ -11,7 +11,7 @@ const About = () => {
         />
       </div>
       <div className="flex flex-col items-center mt-4">
-        <h1 className="text-3xl text-white whitespace-nowrap mt-10 md:mt-0 uppercase font-bold">
+        <h1 className="text-3xl text-white whitespace-nowrap mt-16 md:mt-0 uppercase font-bold">
           About Fifa
         </h1>
         <div className="flex flex-col gap-4 mt-8">
