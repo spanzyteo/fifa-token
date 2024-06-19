@@ -6,7 +6,7 @@ const Fifanomics = () => {
       <h1 className="uppercase font-bold text-5xl text-white text-center mt-16">
         Fifanomics
       </h1>
-      <div className="flex flex-col 2xl:flex-row justify-between items-center px-2 md:px-24">
+      <div className="flex flex-col lg:flex-row justify-between items-center px-2 md:px-16 lg:px-24">
         <div className="py-7 flex flex-col md:flex-row mt-4 md:mt-12 items-center justify-between">
           <img src={ronaldo} alt="ronaldo" className="md:h-[32rem] w-[36rem]" />
         </div>
