@@ -3,6 +3,7 @@ import { createContext, useContext, useReducer } from 'react'
 const initialState = {
   sectionRef: null,
   sectionTwoRef: null,
+  sideBarOpen: false
 }
 
 const SectionContext = createContext()
@@ -13,6 +14,10 @@ const sectionReducer = (state, action) => {
       return { ...state, sectionRef: action.payload }
     case 'SET_SECTION_TWO_REF':
         return { ...state, sectionTwoRef: action.payload}
+    case 'OPEN_SIDE_BAR': 
+        return {  ...state, sideBarOpen: true}
+    case 'CLOSE_SIDE_BAR': 
+        return {  ...state, sideBarOpen: false}
     default:
       return state
   }

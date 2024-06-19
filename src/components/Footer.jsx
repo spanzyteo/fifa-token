@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaTelegramPlane } from 'react-icons/fa'
+import { FaFacebookF, FaTelegramPlane } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { SiCoinmarketcap } from 'react-icons/si'
 import { IoIosArrowDropup } from 'react-icons/io'
@@ -23,8 +23,16 @@ const Footer = () => {
           <FaXTwitter className="h-5 w-5 cursor-pointer" />
         </Link>
         <SiCoinmarketcap className="h-5 w-5 cursor-pointer" />
-        <Link to={'https://telegram.org/'} target="_blank">
+        <Link to={'https://t.me/+u_8-Xf9DmQU3ZTJk'} target="_blank">
           <FaTelegramPlane className="h-5 w-5 cursor-pointer" />
+        </Link>
+        <Link
+          to={
+            'https://www.facebook.com/profile.php?id=61561003928862&mibextid=ZbWKwL'
+          }
+          target="_blank"
+        >
+          <FaFacebookF className="h-4 w-4 cursor-pointer" />
         </Link>
       </div>
       <div>

@@ -5,13 +5,13 @@ import logo from '../assets/fifa-logo.png'
 const FirstBody = () => {
   return (
     <>
-      <div className="flex h-[500px] ">
+      <div className="flex h-[500px] overflow-hidden">
         <img
-          className="h-full w-full relative block md:hidden object-cover"
+          className="h-full w-full relative block lg:hidden object-cover"
           src={wallpaper}
           alt="wallpaper"
         />
-        <div className="absolute text-white top-[18%] md:hidden flex flex-col ml-2">
+        <div className="absolute text-white top-[18%] lg:hidden flex flex-col ml-2">
           <h1 className=" font-bold text-4xl uppercase  ">
             Bring <span className="text-green-400">your</span>{' '}
             <span className=" text-yellow-400">skills</span>
@@ -24,12 +24,12 @@ const FirstBody = () => {
             fuga{' '}
           </p>
         </div>
-        <div className="absolute top-[52%] ml-4 block md:hidden">
+        <div className="absolute top-[52%] ml-4 block lg:hidden">
           <button className="text-white border-2 p-3 px-7  rounded-full font-semibold border-green-400 hover:bg-green-400 hover:border-white hover:text-black hover:font-bold transition duration-300 ease active:opacity-70">
             Buy Now
           </button>
         </div>
-        <div className="sm:flex flex-row hidden px-24 justify-between items-center">
+        <div className="lg:flex flex-row hidden px-24 justify-between items-center">
           <div className="">
             <h1 className=" font-bold text-5xl uppercase text-white whitespace-nowrap">
               Bring <span className="text-green-400">your</span>
@@ -55,8 +55,8 @@ const FirstBody = () => {
           </div>
         </div>
       </div>
-      <div className="relative flex items-center justify-center md:mt-[-8rem] mt-[-3rem]">
-        <div className=" flex h-[50px] bg-yellow-400 overflow-hidden marquee-container w-[101%] py-2 absolute -rotate-12 md:-rotate-6">
+      <div className="relative flex items-center justify-center md:mt-[-8rem] mt-[-3rem] overflow-hidden">
+        <div className=" flex h-[50px] bg-yellow-400 overflow-hidden marquee-container w-[120%] py-2 absolute -rotate-12 md:-rotate-6">
           <p className="marquee-text font-bold text-3xl">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
@@ -66,7 +66,7 @@ const FirstBody = () => {
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
         </div>
-        <div className=" flex h-[50px] bg-yellow-400 overflow-hidden marquee-container w-[101%] py-2 absolute rotate-12 md:rotate-6">
+        <div className=" flex h-[50px] bg-yellow-400 overflow-hidden marquee-container w-[120%] py-2 absolute rotate-12 md:rotate-6">
           <p className="marquee-text font-bold text-3xl">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
