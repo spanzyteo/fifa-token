@@ -1,9 +1,25 @@
+import { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import bellingham from '../assets/bellingham.png'
 import gif from '../assets/gif1.mp4'
+import { useSection } from '../Context'
 
 const About = () => {
+  const sectionRef = useRef(null)
+  const location = useLocation()
+  const {state, dispatch} = useSection()
+
+  useEffect(() => {
+    dispatch({ type: 'SET_SECTION_REF', payload:sectionRef })
+    if (location.state && location.state.scrollToSection) {
+      const sectionElement = sectionRef.current
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth'})
+      }
+    }
+  }, [sectionRef, dispatch, location])
   return (
-    <div className="py-7 flex flex-col lg:flex-row md:px-24 px-2 mt-4 md:mt-12 items-center justify-between gap-8">
+    <div ref={sectionRef} className="py-7 flex flex-col lg:flex-row md:px-24 px-2 mt-4 md:mt-12 items-center justify-between gap-8">
       <div className="">
         <img
           src={bellingham}
