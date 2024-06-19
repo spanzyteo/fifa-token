@@ -3,16 +3,16 @@ import ronaldo from '../assets/ronaldo2.png'
 const Fifanomics = () => {
   return (
     <div className="">
-      <h1 className="uppercase hidden md:block font-bold text-4xl text-white text-center mt-16">
+      <h1 className="uppercase font-bold text-5xl text-white text-center mt-16">
         Fifanomics
       </h1>
-      <div className="flex flex-col md:flex-row justify-between items-center px-2 md:px-36">
+      <div className="flex flex-col 2xl:flex-row justify-between items-center px-2 md:px-24">
         <div className="py-7 flex flex-col md:flex-row mt-4 md:mt-12 items-center justify-between">
           <img src={ronaldo} alt="ronaldo" className="md:h-[32rem] w-[36rem]" />
         </div>
-        <h1 className="uppercase block md:hidden font-bold text-4xl text-white text-center mt-4">
+        {/* <h1 className="uppercase block md:hidden font-bold text-4xl text-white text-center mt-4">
           Fifanomics
-        </h1>
+        </h1> */}
         <div className="flex flex-col gap-4 mt-16">
           <div className="flex flex-col h-[170px] px-4 md:w-[600px] w-[100%] border border-yellow-400 rounded-3xl gap-2 justify-center">
             <div className="">
