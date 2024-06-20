@@ -21,18 +21,18 @@ const Fifanomics = () => {
               </h1>
             </div>
             <div className="">
-              <p className="text-2xl text-white">Fifa likes to pay 0% taxes.</p>
+              <p className="text-2xl text-white">FIFA Stream operates with a 0% tax policy.</p>
             </div>
           </div>
           <div className="flex flex-col h-[170px] px-4 md:w-[600px] w-[100%] border border-yellow-400 rounded-3xl gap-2 justify-center ">
             <div className="">
               <h1 className="font-bold uppercase text-4xl md:text-5xl text-white">
-                CONTRACT IS SAFU
+              SECURE CONTRACT
               </h1>
             </div>
             <div className="">
               <p className="text-2xl text-white">
-                Fifa likes No mints. No WL. Renounced.
+              No minting, no whitelist, and a renounced contract ensure the integrity of FIFA Stream.
               </p>
             </div>
           </div>
@@ -43,7 +43,7 @@ const Fifanomics = () => {
               </h1>
             </div>
             <div className="">
-              <p className="text-2xl text-white">100% of LP is locked!</p>
+              <p className="text-2xl text-white">100% of the liquidity pool is locked, guaranteeing security and trust.</p>
             </div>
           </div>
         </div>

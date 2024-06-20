@@ -46,7 +46,7 @@ const Roadmap = () => {
               <div className="flex flex-col text-white font-bold md:text-2xl gap-6">
                 <p className="font-semibold">Q2, 2024</p>
                 <p className="md:w-[250px] w-[180px]">
-                  Mike learns about AI and joins BASE
+                  FIFA Stream launches presale on Solana
                 </p>
               </div>
             </div>
@@ -57,9 +57,9 @@ const Roadmap = () => {
                 className="h-[160px] md:h-[300px] w-[100px] md:w-[200px]"
               />
               <div className="flex flex-col text-white font-bold md:text-2xl gap-6">
-                <p className="font-semibold">Q2-Q4, 2024</p>
+                <p className="font-semibold">Q4, 2024</p>
                 <p className="md:w-[250px] w-[160px]">
-                  MikeAI rises. The big players start to take him seriously
+                  FIFA Stream rises. Celebrity endorsement from SNOOPDOG.
                 </p>
               </div>
             </div>
@@ -79,9 +79,9 @@ const Roadmap = () => {
                 className="h-[160px] md:h-[300px] w-[100px] md:w-[200px]"
               />
               <div className="flex flex-col text-white font-semibold md:font-bold md:text-2xl gap-6">
-                <p className="font-semibold">Q2, 2024</p>
+                <p className="font-semibold">Q3, 2024</p>
                 <p className="md:w-[250px] w-[180px]">
-                  MikeAI is moving forward and survives
+                  FIFA Stream presale is live.
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@ const Roadmap = () => {
               <div className="flex flex-col text-white font-semibold md:font-bold md:text-2xl gap-6">
                 <p className="font-semibold">Q1-Q3, 2025</p>
                 <p className="md:w-[250px] w-[180px]">
-                  MikeAI launches his AI modules, exclusively for holders.
+                  FIFA Stream launches the streaming platform, providing rewards exclusively for holders.
                 </p>
               </div>
             </div>

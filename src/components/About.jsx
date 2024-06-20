@@ -32,54 +32,51 @@ const About = () => {
       </div>
       <div className="flex flex-col items-center mt-4">
         <h1 className="text-3xl text-white whitespace-nowrap mt-16 md:mt-0 uppercase font-bold">
-          About Fifa
+          About FIFA Stream
         </h1>
         <div className="flex flex-col gap-4 mt-8">
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-bold uppercase text-2xl">Lorem</h1>
+              <h1 className="font-bold uppercase text-2xl text-center">INNOVATION</h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
             <div className="ml-4 font-semibold">
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure
-                rem, officia{' '}
+              FIFA Stream is pioneering the future of streaming rewards with cutting-edge technology.{' '}
               </p>
             </div>
           </div>
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-bold uppercase text-2xl">Lorem</h1>
+            <h1 className="font-bold uppercase text-2xl text-center">CELEBRITY ENDORSEMENT</h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
             <div className="ml-4 font-semibold">
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure
-                rem, officia
+              Endorsed by Snoop Dogg, FIFA Stream has star power and credibility.
+
               </p>
             </div>
           </div>
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-bold uppercase text-2xl">Lorem</h1>
+              <h1 className="font-bold uppercase text-2xl text-center">REWARDS</h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
             <div className="ml-4 font-semibold">
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure
-                rem, officia
+              Our platform offers amazing rewards to streamers, incentivizing quality content.
               </p>
             </div>
           </div>
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-bold uppercase text-2xl">Lorem</h1>
+              <h1 className="font-bold uppercase text-2xl text-center">STREAMING PLATFORM</h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
             <div className="ml-4 font-semibold">
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure
-                rem, officia
+              Our state-of-the-art streaming service is set to launch soon, bringing exciting new opportunities for streamers.
               </p>
             </div>
           </div>
