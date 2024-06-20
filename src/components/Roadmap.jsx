@@ -57,9 +57,9 @@ const Roadmap = () => {
                 className="h-[160px] md:h-[300px] w-[100px] md:w-[200px]"
               />
               <div className="flex flex-col text-white font-bold md:text-2xl gap-6">
-                <p className="font-semibold">Q4, 2024</p>
+                <p className="font-semibold">Q3, 2024</p>
                 <p className="md:w-[250px] w-[160px]">
-                  FIFA Stream rises. Celebrity endorsement from SNOOPDOG.
+                FIFA Stream presale is live.
                 </p>
               </div>
             </div>
@@ -79,9 +79,9 @@ const Roadmap = () => {
                 className="h-[160px] md:h-[300px] w-[100px] md:w-[200px]"
               />
               <div className="flex flex-col text-white font-semibold md:font-bold md:text-2xl gap-6">
-                <p className="font-semibold">Q3, 2024</p>
+                <p className="font-semibold">Q4, 2024</p>
                 <p className="md:w-[250px] w-[180px]">
-                  FIFA Stream presale is live.
+                FIFA Stream rises. Celebrity endorsement from SNOOPDOG.
                 </p>
               </div>
             </div>
