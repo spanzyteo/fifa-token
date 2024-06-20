@@ -19,7 +19,10 @@ const About = () => {
     }
   }, [sectionRef, dispatch, location])
   return (
-    <div ref={sectionRef} className="py-7 flex flex-col lg:flex-row md:px-24 px-2 mt-4 md:mt-12 items-center justify-between gap-8">
+    <div
+      ref={sectionRef}
+      className="py-7 flex flex-col lg:flex-row md:px-24 px-2 mt-4 md:mt-12 items-center justify-between gap-8"
+    >
       <div className="">
         <img
           src={bellingham}
@@ -37,46 +40,57 @@ const About = () => {
         <div className="flex flex-col gap-4 mt-8">
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-bold uppercase text-2xl text-center">INNOVATION</h1>
+              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
+                INNOVATION
+              </h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-4 font-semibold">
+            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[150px] md:w-[350px]">
               <p>
-              FIFA Stream is pioneering the future of streaming rewards with cutting-edge technology.{' '}
+                FIFA Stream is pioneering the future of streaming rewards with
+                cutting-edge technology.{' '}
               </p>
             </div>
           </div>
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-            <h1 className="font-bold uppercase text-2xl text-center">CELEBRITY ENDORSEMENT</h1>
+              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
+                CELEBRITY ENDORSEMENT
+              </h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-4 font-semibold">
+            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[150px] md:w-[350px]">
               <p>
-              Endorsed by Snoop Dogg, FIFA Stream has star power and credibility.
-
+                Endorsed by Snoop Dogg, FIFA Stream has star power and
+                credibility.
               </p>
             </div>
           </div>
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-bold uppercase text-2xl text-center">REWARDS</h1>
+              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
+                REWARDS
+              </h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-4 font-semibold">
+            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[200px] md:w-[350px]">
               <p>
-              Our platform offers amazing rewards to streamers, incentivizing quality content.
+                Our platform offers amazing rewards to streamers, incentivizing
+                quality content.
               </p>
             </div>
           </div>
           <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-bold uppercase text-2xl text-center">STREAMING PLATFORM</h1>
+              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
+                STREAMING PLATFORM
+              </h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-4 font-semibold">
+            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[150px] md:w-[400px]">
               <p>
-              Our state-of-the-art streaming service is set to launch soon, bringing exciting new opportunities for streamers.
+                Our state-of-the-art streaming service is set to launch soon,
+                bringing exciting new opportunities for streamers.
               </p>
             </div>
           </div>

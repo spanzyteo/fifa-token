@@ -38,7 +38,7 @@ const Header = () => {
           </h1>
         </Link>
       </div>
-      <div className="md:flex flex-row hidden gap-8">
+      <div className="md:flex flex-row hidden gap-8 items-center">
         <h1
           className="font-sans uppercase font-bold text-2xl cursor-pointer hover:opacity-75"
           onClick={handleScrollToSection}
@@ -51,8 +51,8 @@ const Header = () => {
         >
           Roadmap
         </h1>
-        <h1 className="font-sans uppercase font-bold text-2xl cursor-pointer hover:opacity-75">
-          Lorem
+        <h1 className="font-sans uppercase font-bold text-2xl cursor-pointer hover:opacity-75 border-2 p-2 border-black">
+          Buy now
         </h1>
       </div>
       {!sidebar && (
