@@ -22,14 +22,14 @@ const About = () => {
   return (
     <div
       ref={sectionRef}
-      className="py-7 flex flex-col lg:flex-row md:px-24 lg:px-2 px-0 mt-4 md:mt-12 items-center justify-between gap-8"
+      className="py-7 flex flex-col lg:flex-row  lg:px-2 px-0 mt-4 md:mt-12 items-center justify-between gap-8"
     >
       <div className="block lg:hidden relative w-[100%]">
         <video autoPlay loop muted className="w-full ">
           <source src={gif1} type="video/mp4" />
         </video>
-        <img src={livestream} alt="live-stream" className="absolute top-0 left-0 h-[150px] w-[150px]" />
-        <div className='absolute top-[4%] left-[18%] h-[20px] w-[20px] rounded-full bg-green-500'></div>
+        <img src={livestream} alt="live-stream" className="absolute top-[-2rem] left-[-1rem] h-[150px] w-[150px]" />
+        <div className='absolute sm:top-[2%] sm:left-[14%] left-[7rem] top-[1rem] h-[20px] w-[20px] rounded-full bg-green-500'></div>
       </div>
       <div className="">
         <img
