@@ -36,10 +36,10 @@ const Sidebar = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -300 }}
             transition={{ duration: 0.5 }}
-            className="absolute flex h-[220px] w-[90%] mx-auto bg-black right-0 left-0 top-[4%] border border-white "
+            className="absolute flex h-[250px] w-[90%] mx-auto bg-black right-0 left-0 top-[4%] border border-white justify-between"
           >
-            <div className="flex justify-between">
-              <div className="flex flex-col ml-4 mt-4">
+            <div className="flex ">
+              <div className="flex flex-col ml-4 mt-4 gap-2">
                 <h1 className="font-sans uppercase font-bold text-4xl text-white">
                   fifa
                 </h1>
@@ -55,10 +55,10 @@ const Sidebar = () => {
                 >
                   Roadmap
                 </h1>
-                <h1 className="font-sans uppercase font-semibold text-2xl cursor-pointer hover:opacity-75 text-white">
-                  Lorem
+                <h1 className="font-sans uppercase font-semibold text-2xl cursor-pointer hover:opacity-75 text-white border-2 p-1">
+                  Buy now
                 </h1>
-                <div className="flex mt-4 first-letter:flex-row gap-4">
+                <div className="flex mt-3 first-letter:flex-row gap-4">
                   <Link to={'https://x.com/home'} target="_blank">
                     <FaXTwitter className="h-4 w-4 text-white cursor-pointer" />
                   </Link>
@@ -76,7 +76,8 @@ const Sidebar = () => {
                   </Link>
                 </div>
               </div>
-              <div className="mr-[-19rem]">
+            </div>
+              <div className="mr-[4%]">
                 <MdOutlineCancel
                   className="text-white h-8 w-8 mt-4"
                   onClick={() => {
@@ -84,7 +85,6 @@ const Sidebar = () => {
                   }}
                 />
               </div>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

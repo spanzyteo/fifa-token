@@ -1,33 +1,41 @@
 import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import bellingham from '../assets/bellingham.png'
-import gif from '../assets/gif1.mp4'
 import { useSection } from '../Context'
+import gif1 from '../assets/gif.mp4'
+import livestream from '../assets/livestream.png'
 
 const About = () => {
   const sectionRef = useRef(null)
   const location = useLocation()
-  const {state, dispatch} = useSection()
+  const { state, dispatch } = useSection()
 
   useEffect(() => {
-    dispatch({ type: 'SET_SECTION_REF', payload:sectionRef })
+    dispatch({ type: 'SET_SECTION_REF', payload: sectionRef })
     if (location.state && location.state.scrollToSection) {
       const sectionElement = sectionRef.current
       if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: 'smooth'})
+        sectionElement.scrollIntoView({ behavior: 'smooth' })
       }
     }
   }, [sectionRef, dispatch, location])
   return (
     <div
       ref={sectionRef}
-      className="py-7 flex flex-col lg:flex-row md:px-24 px-2 mt-4 md:mt-12 items-center justify-between gap-8"
+      className="py-7 flex flex-col lg:flex-row md:px-24 lg:px-2 px-0 mt-4 md:mt-12 items-center justify-between gap-8"
     >
+      <div className="block lg:hidden relative w-[100%]">
+        <video autoPlay loop muted className="w-full ">
+          <source src={gif1} type="video/mp4" />
+        </video>
+        <img src={livestream} alt="live-stream" className="absolute top-0 left-0 h-[150px] w-[150px]" />
+        <div className='absolute top-[4%] left-[18%] h-[20px] w-[20px] rounded-full bg-green-500'></div>
+      </div>
       <div className="">
         <img
           src={bellingham}
           alt="pes"
-          className=" h-[26rem] min-w-[18rem] w-[22rem] mx-auto"
+          className=" lg:block hidden h-[26rem] min-w-[18rem] w-[22rem] mx-auto"
         />
         {/* <video autoPlay loop muted className='mx-auto  h-[20rem] w-[40rem] rounded-lg mt-0 md:mt-[6rem]'>
             <source src={gif} type='video/mp4'/>
