@@ -13,6 +13,10 @@ const Sidebar = () => {
   const sectionTwoRef = state.sectionTwoRef
   const sidebar = state.sideBarOpen
 
+  const openModal = () => {
+    dispatch({ type: 'OPEN_MODAL' })
+  }
+
   const closeSidebar = () => {
     dispatch({ type: 'CLOSE_SIDE_BAR' })
   }
@@ -55,7 +59,13 @@ const Sidebar = () => {
                 >
                   Roadmap
                 </h1>
-                <h1 className="font-sans uppercase font-semibold text-2xl cursor-pointer hover:opacity-75 text-white border-2 p-1">
+                <h1
+                  onClick={() => {
+                    openModal()
+                    closeSidebar()
+                  }}
+                  className="font-sans uppercase font-semibold text-2xl cursor-pointer hover:opacity-75 text-white border-2 p-1"
+                >
                   Buy now
                 </h1>
                 <div className="flex mt-3 first-letter:flex-row gap-4">
@@ -77,14 +87,14 @@ const Sidebar = () => {
                 </div>
               </div>
             </div>
-              <div className="mr-[4%]">
-                <MdOutlineCancel
-                  className="text-white h-8 w-8 mt-4"
-                  onClick={() => {
-                    closeSidebar()
-                  }}
-                />
-              </div>
+            <div className="mr-[4%]">
+              <MdOutlineCancel
+                className="text-white h-8 w-8 mt-4"
+                onClick={() => {
+                  closeSidebar()
+                }}
+              />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

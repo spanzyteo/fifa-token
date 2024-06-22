@@ -7,12 +7,16 @@ import Roadmap from '../components/Roadmap'
 import JoinNow from '../components/JoinNow'
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
+import LiveStream from '../components/LiveStream'
+// import Modal from '../components/Modal'
 
 const Home = () => (
   <div className=" bg-black h-screen relative">
     <Header />
     <FirstBody />
     <Sidebar />
+    {/* <Modal /> */}
+    <LiveStream />
     <About />
     <Fifanomics />
     <Roadmap />

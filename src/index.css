@@ -27,19 +27,21 @@ body {
 
 @font-face {
   font-family: 'fugaz-one';
-  src: url('./font/fugaz-one.regular.ttf') format('truetype');
+  src: url('./font/spantaran.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'fugaz-one';
-  src: url('./font/fugaz-one.regular.ttf') format('truetype');
+  src: url('./font/spantaran.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
 
-/* You can add additional font-face rules for other styles and weights */
+.no-scroll {
+  overflow: hidden;
+}
 
 
 @keyframes scroll {

@@ -18,6 +18,10 @@ const Header = () => {
     dispatch({ type: 'OPEN_SIDE_BAR' })
   }
 
+  const openModal = () => {
+    dispatch({ type: 'OPEN_MODAL'})
+  }
+
   const handleScrollToSection = () => {
     if (sectionRef && sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: 'smooth' })
@@ -51,7 +55,9 @@ const Header = () => {
         >
           Roadmap
         </h1>
-        <h1 className="font-sans uppercase font-bold text-2xl cursor-pointer hover:opacity-75 border-2 p-2 border-black">
+        <h1 onClick={() => {
+          openModal()
+        }} className="font-sans uppercase font-bold text-2xl cursor-pointer hover:opacity-75 border-2 p-2 border-black">
           Buy now
         </h1>
       </div>

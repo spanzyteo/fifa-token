@@ -22,15 +22,8 @@ const About = () => {
   return (
     <div
       ref={sectionRef}
-      className="py-7 flex flex-col lg:flex-row  lg:px-2 px-0 mt-4 md:mt-12 items-center justify-between gap-8"
+      className="py-7 flex flex-col lg:flex-row  lg:px-32 px-0 mt-0 lg:mt-12 items-center justify-between gap-8 "
     >
-      <div className="block lg:hidden relative w-[100%]">
-        <video autoPlay loop muted className="w-full ">
-          <source src={gif1} type="video/mp4" />
-        </video>
-        <img src={livestream} alt="live-stream" className="absolute top-[-2rem] left-[-1rem] h-[150px] w-[150px]" />
-        <div className='absolute sm:top-[2%] sm:left-[14%] left-[7rem] top-[1rem] h-[20px] w-[20px] rounded-full bg-green-500'></div>
-      </div>
       <div className="">
         <img
           src={bellingham}
@@ -41,6 +34,7 @@ const About = () => {
             <source src={gif} type='video/mp4'/>
         </video> */}
       </div>
+
       <div className="flex flex-col items-center mt-4">
         <h1 className="text-3xl text-white whitespace-nowrap mt-16 md:mt-0 uppercase font-bold">
           About FIFA Stream
