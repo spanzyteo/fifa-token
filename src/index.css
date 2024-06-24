@@ -43,6 +43,15 @@ body {
   overflow: hidden;
 }
 
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.beeping {
+  animation: flash 1s infinite
+}
+
 
 @keyframes scroll {
   0% {
@@ -51,4 +60,10 @@ body {
   100% {
     transform: translateX(-100%);
   }
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
