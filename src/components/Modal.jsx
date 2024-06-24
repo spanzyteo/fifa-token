@@ -37,7 +37,7 @@ const Modal = () => {
   const handleChange = (e) => {
     setSolValue(e.target.value)
   }
-  
+
   const handleFifaChange = (e) => {
     setFifaValue(e.target.value)
   }
@@ -123,10 +123,31 @@ const Modal = () => {
                     className=" flex items-center h-[10px] mx-auto mt-6 bg-slate-500"
                     style={{ width: '100%' }}
                   >
-                    <div
-                      className="h-[10px] bg-yellow-400"
-                      style={{ width: `${percentage}%` }}
-                    ></div>
+                    <motion.div
+                      style={{
+                        width: `${percentage}%`,
+                        height: '100%',
+                        backgroundColor: 'yellow',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      <motion.div
+                        initial={{ backgroundPosition: '0 0' }}
+                        animate={{ backgroundPosition: '200% 0' }}
+                        transition={{
+                          duration: 4,
+                          ease: 'linear',
+                          repeat: Infinity,
+                        }}
+                        style={{
+                          width: '200%',
+                          height: '100%',
+                          backgroundImage:
+                            'linear-gradient(45deg, rgba(0, 0, 0, 0.2) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.2) 75%, transparent 75%, transparent)',
+                          backgroundSize: '20px 20px',
+                        }}
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </div>
