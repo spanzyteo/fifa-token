@@ -1,6 +1,7 @@
-import wallpaper from '../assets/fifa-wallpaper2.jpg'
-import ronaldo from '../assets/ronaldo.png'
-import logo from '../assets/fifa-logo.png'
+import wallpaper from '../assets/fifa-wallpaper2.jpg';
+import ronaldo from '../assets/ronaldo.png';
+import logo from '../assets/fifa-logo.png';
+import ConnectWalletButton from './ConnectWalletButton';
 
 const FirstBody = () => {
   return (
@@ -24,7 +25,8 @@ const FirstBody = () => {
             fuga{' '}
           </p>
         </div>
-        <div className="absolute top-[52%] ml-4 block lg:hidden">
+        <div className="absolute top-[52%] ml-4 lg:hidden flex items-center gap-2">
+          <ConnectWalletButton />
           <button className="text-white border-2 p-3 px-7  rounded-full font-semibold border-green-400 hover:bg-green-400 hover:border-white hover:text-black hover:font-bold transition duration-300 ease active:opacity-70">
             Buy Now
           </button>
@@ -42,9 +44,12 @@ const FirstBody = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
               fuga{' '}
             </p>
-            <button className="text-white p-3 px-7  rounded-full font-semibold border-green-400  border-2 hover:bg-green-400 hover:border-white hover:text-black hover:font-bold transition duration-300 ease active:opacity-70 mt-10">
-              Buy Now
-            </button>
+            <div className="flex gap-2 items-center ">
+              <ConnectWalletButton />
+              <button className="text-white p-3 px-7  rounded-full font-semibold border-green-400  border-2 hover:bg-green-400 hover:border-white hover:text-black hover:font-bold transition duration-300 ease active:opacity-70 mt-10">
+                Buy Now
+              </button>
+            </div>
           </div>
           <div className="">
             <img
@@ -76,10 +81,14 @@ const FirstBody = () => {
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
         </div>
-        <img src={logo} alt="logo" className="md:h-[350px] h-40 md:w-[350px] w-40 z-10" />
+        <img
+          src={logo}
+          alt="logo"
+          className="md:h-[350px] h-40 md:w-[350px] w-40 z-10"
+        />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FirstBody
+export default FirstBody;
