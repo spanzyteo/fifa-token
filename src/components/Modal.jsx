@@ -135,7 +135,7 @@ const Modal = () => {
                         initial={{ backgroundPosition: '0 0' }}
                         animate={{ backgroundPosition: '200% 0' }}
                         transition={{
-                          duration: 4,
+                          duration: 18,
                           ease: 'linear',
                           repeat: Infinity,
                         }}
