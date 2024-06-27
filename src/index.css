@@ -25,6 +25,34 @@ body {
   animation: scroll 4000ms linear infinite;
 }
 
+@font-face {
+  font-family: 'fugaz-one';
+  src: url('./font/spantaran.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'fugaz-one';
+  src: url('./font/spantaran.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.beeping {
+  animation: flash 1s infinite
+}
+
+
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -32,4 +60,10 @@ body {
   100% {
     transform: translateX(-100%);
   }
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }

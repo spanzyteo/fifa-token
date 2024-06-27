@@ -2,36 +2,55 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 .wallet-adapter-button {
-  background-color: transparent;
+  background: #facc15;
   border: none;
-  color: #fff;
+  /* color: black; */
   cursor: pointer;
   display: flex;
-  align-items: center;
   font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: large;
+  font-weight: bold;
   height: 48px;
-  line-height: 48px;
+
   padding: 0 24px;
   border-radius: 4px;
 }
 
+.wallet-adapter-button,
+.wallet-adapter-button[aria-label='Wallet connected'] {
+  color: white; /* Equivalent to text-white */
+  padding: 12px 28px; /* Equivalent to p-3 px-7 (3 * 4px = 12px, 7 * 4px = 28px) */
+  font-weight: bold; /* Equivalent to font-semibold */ /* Equivalent to border-green-400 */
+  transition: all 0.3s ease; /* Equivalent to transition duration-300 ease */
+  /* Equivalent to mt-10 (10 * 4px = 40px) */
+  background: transparent;
+}
+
+.wallet-adapter-button:hover,
+.wallet-adapter-button[aria-label='Wallet connected']:hover {
+  background: #68d391; /* Equivalent to hover:bg-green-400 */
+  /* Equivalent to hover:border-white */
+  color: black; /* Equivalent to hover:text-black */
+  font-weight: 700; /* Equivalent to hover:font-bold */
+}
 .wallet-adapter-button-trigger {
-  background-color: #68d391;
+  line-height: 30px;
+  color: black;
+  text-transform: uppercase;
+  border: none;
 }
 
 .wallet-adapter-button:not([disabled]):focus-visible {
-  outline-color: white;
+  outline: none;
 }
 
 .wallet-adapter-button:not([disabled]):hover {
-  background-color: #1a1f2e;
+  background-color: transparent;
 }
 
 .wallet-adapter-button[disabled] {
-  background: #404144;
+  background: #facc15;
   color: #999;
   cursor: not-allowed;
 }
@@ -62,6 +81,14 @@
 .wallet-adapter-dropdown {
   position: relative;
   display: inline-block;
+  background: #facc15;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.75rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: large;
 }
 
 .wallet-adapter-dropdown-list {
@@ -71,11 +98,13 @@
   grid-template-rows: 1fr;
   grid-row-gap: 10px;
   padding: 10px;
-  top: 100%;
-  right: 0;
+  top: -20%;
+  right: -12%;
   margin: 0;
+  z-index: 1;
   list-style: none;
-  background: #2c2d30;
+  background: #2c2d30a4;
+  border: 1px solid white;
   border-radius: 10px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
   opacity: 0;
@@ -111,7 +140,7 @@
 }
 
 .wallet-adapter-dropdown-list-item:not([disabled]):hover {
-  background-color: #1a1f2e;
+  background-color: inherit;
 }
 
 .wallet-adapter-modal-collapse-button svg {
@@ -135,7 +164,7 @@
   transition: opacity linear 150ms;
   background: rgba(0, 0, 0, 0.5);
   z-index: 1040;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .wallet-adapter-modal.wallet-adapter-modal-fade-in {
@@ -176,6 +205,7 @@
   left: 0;
   bottom: 0;
   right: 0;
+  overflow-y: scroll;
 }
 
 .wallet-adapter-modal-container {
@@ -184,6 +214,7 @@
   min-height: calc(100vh - 6rem); /* 100vh - 2 * margin */
   align-items: center;
   justify-content: center;
+  overflow-y: scroll;
 }
 
 @media (max-width: 480px) {
@@ -207,6 +238,7 @@
   font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial,
     sans-serif;
   flex: 1;
+  overflow-y: scroll;
 }
 
 .wallet-adapter-modal-wrapper .wallet-adapter-button {
@@ -299,28 +331,6 @@
   color: #fff;
 }
 
-.wallet-adapter-button,
-.wallet-adapter-button[aria-label='Wallet connected'] {
-  color: white; /* Equivalent to text-white */
-  padding: 12px 28px; /* Equivalent to p-3 px-7 (3 * 4px = 12px, 7 * 4px = 28px) */
-  border-radius: 9999px; /* Equivalent to rounded-full */
-  font-weight: 600; /* Equivalent to font-semibold */
-  border-color: #68d391; /* Equivalent to border-green-400 */
-  border-width: 2px; /* Equivalent to border-2 */
-  transition: all 0.3s ease; /* Equivalent to transition duration-300 ease */
-  margin-top: 40px; /* Equivalent to mt-10 (10 * 4px = 40px) */
-  background: transparent;
-  border: solid;
-}
-
-.wallet-adapter-button:hover,
-.wallet-adapter-button[aria-label='Wallet connected']:hover {
-  background: #68d391; /* Equivalent to hover:bg-green-400 */
-  border-color: white; /* Equivalent to hover:border-white */
-  color: black; /* Equivalent to hover:text-black */
-  font-weight: 700; /* Equivalent to hover:font-bold */
-}
-
-.wallet-adapter-button:active {
-  opacity: 0.7; /* Equivalent to active:opacity-70 */
-}
+/* .wallet-adapter-button:active {
+  opacity: 0.7; 
+} */

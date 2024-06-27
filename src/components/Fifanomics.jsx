@@ -1,4 +1,5 @@
-import ronaldo from '../assets/ronaldo2.png'
+import React from 'react';
+import ronaldo from '../assets/ronaldo2.png';
 
 const Fifanomics = () => {
   return (
@@ -16,40 +17,46 @@ const Fifanomics = () => {
         <div className="flex flex-col gap-4 mt-16">
           <div className="flex flex-col h-[170px] px-4 md:w-[600px] w-[100%] border border-yellow-400 rounded-3xl gap-2 justify-center">
             <div className="">
-              <h1 className="font-bold uppercase text-4xl md:text-5xl text-white">
+              <h1 className="font-semibold md:font-bold uppercase text-3xl md:text-5xl text-white">
                 0% TAX
               </h1>
             </div>
             <div className="">
-              <p className="text-2xl text-white">FIFA Stream operates with a 0% tax policy.</p>
-            </div>
-          </div>
-          <div className="flex flex-col h-[170px] px-4 md:w-[600px] w-[100%] border border-yellow-400 rounded-3xl gap-2 justify-center ">
-            <div className="">
-              <h1 className="font-bold uppercase text-4xl md:text-5xl text-white">
-              SECURE CONTRACT
-              </h1>
-            </div>
-            <div className="">
-              <p className="text-2xl text-white">
-              No minting, no whitelist, and a renounced contract ensure the integrity of FIFA Stream.
+              <p className="text-lg md:text-2xl text-white">
+                FIFA Stream operates with a 0% tax policy.
               </p>
             </div>
           </div>
           <div className="flex flex-col h-[170px] px-4 md:w-[600px] w-[100%] border border-yellow-400 rounded-3xl gap-2 justify-center">
             <div className="">
-              <h1 className="font-bold uppercase text-4xl md:text-5xl text-white">
+              <h1 className="font-semibold md:font-bold uppercase text-4xl md:text-5xl text-white">
+                SECURE CONTRACT
+              </h1>
+            </div>
+            <div className="">
+              <p className="text-md md:text-2xl text-white">
+                No minting, no whitelist, and a renounced contract ensure the
+                integrity of FIFA Stream.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col h-[170px] px-4 md:w-[600px] w-[100%] border border-yellow-400 rounded-3xl gap-2 justify-center">
+            <div className="">
+              <h1 className="font-semibold md:font-bold uppercase text-4xl md:text-5xl text-white">
                 RUG PROOF
               </h1>
             </div>
             <div className="">
-              <p className="text-2xl text-white">100% of the liquidity pool is locked, guaranteeing security and trust.</p>
+              <p className="text-md md:text-2xl text-white">
+                100% of the liquidity pool is locked, guaranteeing security and
+                trust.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Fifanomics
+export default Fifanomics;

@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],
+        fugaz: ['Fugaz-one'],
       },
       backgroundImage: {
         myImage: "url('./src/assets/fifa-wallpaper.png')",
