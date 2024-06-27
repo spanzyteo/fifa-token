@@ -1,4 +1,5 @@
-import ronaldo from '../assets/ronaldo2.png'
+import React from 'react';
+import ronaldo from '../assets/ronaldo2.png';
 
 const Fifanomics = () => {
   return (
@@ -55,7 +56,7 @@ const Fifanomics = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Fifanomics
+export default Fifanomics;

@@ -1,15 +1,17 @@
-import wallpaper from '../assets/fifa-wallpaper2.jpg'
-import ronaldo from '../assets/ronaldo.png'
-import logo from '../assets/fifa-logo.png'
-import gif from '../assets/gif1.mp4'
-import { useSection } from '../Context'
+import React from 'react';
+import logo from '../assets/fifa-logo.png';
+import ConnectWalletButton from './ConnectWalletButton';
+import wallpaper from '../assets/fifa-wallpaper2.jpg';
+import ronaldo from '../assets/ronaldo.png';
+import gif from '../assets/gif1.mp4';
+import { useSection } from '../Context';
 
 const FirstBody = () => {
-  const {state, dispatch} = useSection()
+  const { state, dispatch } = useSection();
   const openModal = () => {
-    dispatch({ type: 'OPEN_MODAL'})
-    console.log('modal open')
-  }
+    dispatch({ type: 'OPEN_MODAL' });
+    console.log('modal open');
+  };
   return (
     <>
       <div className="flex h-[500px] overflow-hidden ">
@@ -39,7 +41,7 @@ const FirstBody = () => {
         <div className="absolute top-[52%] ml-4 block lg:hidden">
           <button
             onClick={() => {
-              openModal()
+              openModal();
             }}
             className="text-white text-3xl border-2 p-3 px-7  rounded-full font-bold border-green-400 hover:bg-green-400 hover:border-white hover:text-black hover:font-bold transition duration-300 ease active:opacity-70"
           >
@@ -61,7 +63,7 @@ const FirstBody = () => {
             </p>
             <button
               onClick={() => {
-                openModal()
+                openModal();
               }}
               className="text-white p-3 border-2 border-green-400 mt-6 text-3xl rounded-full px-6 hover:bg-yellow-400 hover:text-black font-semibold hover:border-white active:opacity-80 transition duration-300 ease"
             >
@@ -77,8 +79,10 @@ const FirstBody = () => {
           </div>
         </div>
       </div>
-      <div className="relative flex items-center justify-center md:mt-[-9rem] mt-[-7rem]
-      lg:mt-[-7.7rem] overflow-hidden">
+      <div
+        className="relative flex items-center justify-center md:mt-[-9rem] mt-[-7rem]
+      lg:mt-[-7.7rem] overflow-hidden"
+      >
         <div className=" flex h-[50px] bg-yellow-400 overflow-hidden marquee-container w-[120%] py-2 absolute -rotate-12 sm:-rotate-6">
           <p className="marquee-text font-bold text-3xl">$FIFA</p>
           <p className="marquee-text text-3xl font-bold">$FIFA</p>
@@ -106,7 +110,7 @@ const FirstBody = () => {
         />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default FirstBody
+export default FirstBody;

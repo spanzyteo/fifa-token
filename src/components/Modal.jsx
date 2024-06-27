@@ -1,54 +1,100 @@
-import { useEffect, useState } from 'react'
-import { MdOutlineCancel } from 'react-icons/md'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useSection } from '../Context'
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
-import { MdOutlineKeyboardDoubleArrowRight } from 'react-icons/md'
-import sol from '../assets/sol.png'
-import usdt from '../assets/usdt.png'
-import usdc from '../assets/usdc.png'
-import logo from '../assets/fifa-logo.png'
-import binance from '../assets/binance.png'
+import React, { useEffect, useState, useRef } from 'react';
+import { MdOutlineCancel } from 'react-icons/md';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useSection } from '../Context';
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+import { MdOutlineKeyboardDoubleArrowRight } from 'react-icons/md';
+import sol from '../assets/sol.png';
+import usdt from '../assets/usdt.png';
+import usdc from '../assets/usdc.png';
+import logo from '../assets/fifa-logo.png';
+import binance from '../assets/binance.png';
+import ConnectWalletButton from './ConnectWalletButton';
+import '../wallet.css';
+import { useWallet, useConnection } from '@solana/wallet-adapter-react';
+import { Web3 } from '../utils/transaction';
+import axios from 'axios';
 
 const Modal = () => {
-  const [progress, setProgress] = useState(419184)
-  const { state, dispatch } = useSection()
-  const [solValue, setSolValue] = useState(0)
-  const [fifaValue, setFifaValue] = useState(0)
-  const modal = state.modalOPen
+  const { sendTransaction, publicKey, connected } = useWallet();
+  const { connection } = useConnection();
+  const [progress, setProgress] = useState(419184);
+  const { state, dispatch } = useSection();
+  const [solValue, setSolValue] = useState(0.0);
+  const [fifaValue, setFifaValue] = useState(0.0);
+  const [solPrice, setSolPrice] = useState(150);
+  const timeoutRef = useRef(null);
+  const modal = state.modalOPen;
 
-  const containerWidth = 80
-  const max = 700000
-  const percentage = (progress / max) * containerWidth
+  const containerWidth = 80;
+  const max = 700000;
+  const percentage = (progress / max) * containerWidth;
+
+  const presaleRateUsd = 0.001;
+  const fetchSolanaPrice = async () => {
+    try {
+      const response = await axios.get(
+        'https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd'
+      );
+      setSolPrice(response.data.solana.usd);
+      console.log(solPrice);
+    } catch (error) {
+      console.error('Error fetching Solana price:', error);
+    }
+  };
+  useEffect(() => {
+    const fetchAndSchedule = async () => {
+      await fetchSolanaPrice();
+      timeoutRef.current = setTimeout(fetchAndSchedule, 300000); // Schedule the next fetch in 5 minutes
+    };
+
+    fetchAndSchedule(); // Initial call to start the cycle
+
+    // Cleanup function
+    return () => clearTimeout(timeoutRef.current);
+  }, [modal]);
 
   useEffect(() => {
     if (modal) {
-      document.body.classList.add('no-scroll')
+      document.body.classList.add('no-scroll');
     } else {
-      document.body.classList.remove('no-scroll')
+      document.body.classList.remove('no-scroll');
     }
 
     // Cleanup function to remove the class when the component unmounts
     return () => {
-      document.body.classList.remove('no-scroll')
-    }
-  }, [modal])
+      document.body.classList.remove('no-scroll');
+    };
+  }, [modal, connected]);
 
-  const handleChange = (e) => {
-    setSolValue(e.target.value)
-  }
+  const handleSolChange = (e) => {
+    setSolValue(e.target.value);
+    const solInUsdAmount = e.target.value * solPrice;
+    const fifaAmount = solInUsdAmount / presaleRateUsd;
 
+    setFifaValue(fifaAmount.toFixed(4));
+  };
   const handleFifaChange = (e) => {
-    setFifaValue(e.target.value)
-  }
+    setFifaValue(e.target.value);
+    const fifaInUsdAmount = e.target.value * presaleRateUsd;
+    const solAmount = fifaInUsdAmount / solPrice;
+    setSolValue(solAmount.toFixed(9));
+  };
 
   const closeModal = () => {
-    dispatch({ type: 'CLOSE_MODAL' })
-  }
+    dispatch({ type: 'CLOSE_MODAL' });
+  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-  }
+  const handleBuy = async () => {
+    const web3 = new Web3();
+    await web3.swap(
+      fifaValue,
+      solValue,
+      sendTransaction,
+      connection,
+      publicKey
+    );
+  };
   return (
     <>
       <AnimatePresence>
@@ -60,12 +106,12 @@ const Modal = () => {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="fixed flex h-[600px] lg:w-[500px] w-[95%] bg-black border mx-auto my-auto z-20 rounded-lg flex-col"
+              className="fixed flex pb-6 lg:w-[700px] w-[95%] bg-black border mx-auto my-auto z-20 rounded-lg flex-col"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div className="flex flex-row  justify-between">
+              <div className="flex flex-row  justify-between ">
                 <div>
                   <img
                     src={logo}
@@ -76,7 +122,7 @@ const Modal = () => {
                 <div className=" text-right mr-[4%]">
                   <MdOutlineCancel
                     onClick={() => {
-                      closeModal()
+                      closeModal();
                     }}
                     className="text-white h-8 w-8 mt-2 cursor-pointer"
                   />
@@ -194,8 +240,8 @@ const Modal = () => {
                 <h1 className="mr-8">You Receive:</h1>
               </div>
               <div className=" flex  items-center h-[60px] w-[90%] border border-slate-700 mx-auto rounded-2xl mt-2">
-                <div className="flex items-center h-[100%] w-[100%] border-r-2 border-slate-700">
-                  <div className="relative">
+                <div className="flex items-center h-[100%] w-[55%] border-r-2 border-slate-700 pr-1">
+                  <div className="relative mr-0.5  w-[25%]">
                     <img
                       src={sol}
                       alt={`sol-icon`}
@@ -211,12 +257,12 @@ const Modal = () => {
                   <input
                     type="number"
                     value={solValue}
-                    className="h-[40px] w-[35%] ml-2 bg-transparent border border-slate-700 focus:border-slate-700 focus:outline-none text-white rounded-lg pl-2 input"
-                    onChange={handleChange}
+                    className="h-[40px] w-[80%] lg:w-[70%] ml-2 bg-transparent border border-slate-700 focus:border-slate-700 focus:outline-none text-white rounded-lg pl-2 input"
+                    onChange={handleSolChange}
                   />
                 </div>
-                <div className="flex items-center">
-                  <div>
+                <div className="flex items-center w-[45%] ">
+                  <div className="mr-0.5 w-[20%]">
                     <img
                       src={logo}
                       alt="logo"
@@ -226,31 +272,43 @@ const Modal = () => {
                   <input
                     type="number"
                     value={fifaValue}
-                    className="h-[40px] w-[35%] ml-4 bg-transparent border border-slate-700 focus:border-slate-700 focus:outline-none text-white rounded-lg pl-2 input"
+                    className="h-[40px] w-[70%] lg:w-[70%] ml-4 bg-transparent border border-slate-700 focus:border-slate-700 focus:outline-none text-white rounded-lg pl-2 input"
                     onChange={handleFifaChange}
                   />
                 </div>
               </div>
               <div className="flex flex-col text-white text-[0.7rem] font-semibold w-[90%] mx-auto mt-2">
-                <div>1 FIFA = $0.OO25</div>
+                <div>1 FIFA = $0.OO1</div>
                 <div className="flex items-center gap-2 text-[0.6rem] md:text-[0.7rem]">
-                  <div>LISTING PRICE = 0.002</div>
-                  <div>PRESALE PRICE = 0.00002</div>
+                  <div>LISTING PRICE = $0.005</div>
+                  <div>PRESALE PRICE = $0.001</div>
                   <div className="text-green-400">x500%</div>
                 </div>
               </div>
-              <button className="flex bg-yellow-400 items-center h-[70px] w-[90%] mx-auto justify-center mt-2 rounded-xl font-bold text-lg uppercase">
-                <div>connect wallet</div>
+              <div className="relative items-center h-[50px] w-[90%] mx-auto justify-center mt-2 rounded-xl font-bold text-lg uppercase">
+                <ConnectWalletButton />
                 <div>
-                  <MdOutlineKeyboardDoubleArrowRight className="ml-2 h-[20px] w-[20px]" />
+                  <MdOutlineKeyboardDoubleArrowRight className="ml-2 h-[20px] w-[20px] absolute mr-[-2rem] top-[33%] left-[65%]" />
                 </div>
+              </div>
+
+              <button
+                disabled={connected == true ? false : true}
+                onClick={handleBuy}
+                className={`w-[90%] text-white py-3 mt-3 mb-3 ${
+                  connected
+                    ? `bg-green-400 text-white`
+                    : `bg-green-900 text-slate-500`
+                }  mx-auto rounded-xl border-white uppercase font-bold`}
+              >
+                Buy $FIFA
               </button>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

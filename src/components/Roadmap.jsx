@@ -1,25 +1,26 @@
-import { useRef, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
-import { useSection } from '../Context'
-import zlatan from '../assets/zlatan.png'
-import bale from '../assets/bale.png'
-import dybala from '../assets/dybala.png'
-import saka from '../assets/saka.png'
+import React from 'react';
+import { useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useSection } from '../Context';
+import zlatan from '../assets/zlatan.png';
+import bale from '../assets/bale.png';
+import dybala from '../assets/dybala.png';
+import saka from '../assets/saka.png';
 
 const Roadmap = () => {
-   const sectionTwoRef = useRef(null)
-   const location = useLocation()
-   const { state, dispatch } = useSection()
+  const sectionTwoRef = useRef(null);
+  const location = useLocation();
+  const { state, dispatch } = useSection();
 
-   useEffect(() => {
-     dispatch({ type: 'SET_SECTION_TWO_REF', payload: sectionTwoRef })
-     if (location.state && location.state.scrollToSection) {
-       const sectionElement = sectionTwoRef.current
-       if (sectionElement) {
-         sectionElement.scrollIntoView({ behavior: 'smooth' })
-       }
-     }
-   }, [sectionTwoRef, dispatch, location])
+  useEffect(() => {
+    dispatch({ type: 'SET_SECTION_TWO_REF', payload: sectionTwoRef });
+    if (location.state && location.state.scrollToSection) {
+      const sectionElement = sectionTwoRef.current;
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [sectionTwoRef, dispatch, location]);
   return (
     <div ref={sectionTwoRef} className="">
       <h1 className="uppercase font-bold text-6xl text-white text-center mt-16 md:mt-24">
@@ -59,7 +60,7 @@ const Roadmap = () => {
               <div className="flex flex-col text-white font-bold md:text-2xl gap-6">
                 <p className="font-semibold">Q3, 2024</p>
                 <p className="md:w-[250px] w-[160px]">
-                FIFA Stream presale is live.
+                  FIFA Stream presale is live.
                 </p>
               </div>
             </div>
@@ -81,7 +82,7 @@ const Roadmap = () => {
               <div className="flex flex-col text-white font-semibold md:font-bold md:text-2xl gap-6">
                 <p className="font-semibold">Q4, 2024</p>
                 <p className="md:w-[250px] w-[180px]">
-                FIFA Stream rises. Celebrity endorsement from SNOOPDOG.
+                  FIFA Stream rises. Celebrity endorsement from SNOOPDOG.
                 </p>
               </div>
             </div>
@@ -94,7 +95,8 @@ const Roadmap = () => {
               <div className="flex flex-col text-white font-semibold md:font-bold md:text-2xl gap-6">
                 <p className="font-semibold">Q1-Q3, 2025</p>
                 <p className="md:w-[250px] w-[180px]">
-                  FIFA Stream launches the streaming platform, providing rewards exclusively for holders.
+                  FIFA Stream launches the streaming platform, providing rewards
+                  exclusively for holders.
                 </p>
               </div>
             </div>
@@ -102,7 +104,7 @@ const Roadmap = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Roadmap
+export default Roadmap;

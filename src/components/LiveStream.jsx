@@ -1,6 +1,7 @@
-import gif1 from '../assets/gif.mp4'
-import livestream from '../assets/livestream.png'
-import wallpaper from '../assets/fifa-wallpaper2.jpg'
+import React from 'react';
+import gif1 from '../assets/gif.mp4';
+import livestream from '../assets/livestream.png';
+import wallpaper from '../assets/fifa-wallpaper2.jpg';
 
 const LiveStream = () => {
   return (
@@ -17,7 +18,7 @@ const LiveStream = () => {
         <div className="absolute sm:top-[2%] sm:left-[14%] left-[7rem] top-[1rem] h-[20px] w-[20px] rounded-full bg-green-500"></div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LiveStream
+export default LiveStream;

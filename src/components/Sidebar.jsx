@@ -1,36 +1,37 @@
-import { motion, AnimatePresence } from 'framer-motion'
-import { MdOutlineCancel } from 'react-icons/md'
-import { Link } from 'react-router-dom'
-import { FaXTwitter } from 'react-icons/fa6'
-import { SiCoinmarketcap } from 'react-icons/si'
-import { FaTelegramPlane } from 'react-icons/fa'
-import { FaFacebookF } from 'react-icons/fa'
-import { useSection } from '../Context'
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { MdOutlineCancel } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import { FaXTwitter } from 'react-icons/fa6';
+import { SiCoinmarketcap } from 'react-icons/si';
+import { FaTelegramPlane } from 'react-icons/fa';
+import { FaFacebookF } from 'react-icons/fa';
+import { useSection } from '../Context';
 
 const Sidebar = () => {
-  const { state, dispatch } = useSection()
-  const sectionRef = state.sectionRef
-  const sectionTwoRef = state.sectionTwoRef
-  const sidebar = state.sideBarOpen
+  const { state, dispatch } = useSection();
+  const sectionRef = state.sectionRef;
+  const sectionTwoRef = state.sectionTwoRef;
+  const sidebar = state.sideBarOpen;
 
   const openModal = () => {
-    dispatch({ type: 'OPEN_MODAL' })
-  }
+    dispatch({ type: 'OPEN_MODAL' });
+  };
 
   const closeSidebar = () => {
-    dispatch({ type: 'CLOSE_SIDE_BAR' })
-  }
+    dispatch({ type: 'CLOSE_SIDE_BAR' });
+  };
 
   const handleScrollToSection = () => {
     if (sectionRef && sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' })
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
   const handleScrollToSectionTwo = () => {
     if (sectionTwoRef && sectionTwoRef.current) {
-      sectionTwoRef.current.scrollIntoView({ behavior: 'smooth' })
+      sectionTwoRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }
+  };
   return (
     <>
       <AnimatePresence>
@@ -61,8 +62,8 @@ const Sidebar = () => {
                 </h1>
                 <h1
                   onClick={() => {
-                    openModal()
-                    closeSidebar()
+                    openModal();
+                    closeSidebar();
                   }}
                   className="font-sans uppercase font-semibold text-2xl cursor-pointer hover:opacity-75 text-white border-2 p-1"
                 >
@@ -91,7 +92,7 @@ const Sidebar = () => {
               <MdOutlineCancel
                 className="text-white h-8 w-8 mt-4"
                 onClick={() => {
-                  closeSidebar()
+                  closeSidebar();
                 }}
               />
             </div>
@@ -99,7 +100,7 @@ const Sidebar = () => {
         )}
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;

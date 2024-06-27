@@ -1,24 +1,24 @@
-import { useEffect, useRef } from 'react'
-import { useLocation } from 'react-router-dom'
-import bellingham from '../assets/bellingham.png'
-import { useSection } from '../Context'
-import gif1 from '../assets/gif.mp4'
-import livestream from '../assets/livestream.png'
+import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import bellingham from '../assets/bellingham.png';
+import { useSection } from '../Context';
+import gif1 from '../assets/gif.mp4';
+import livestream from '../assets/livestream.png';
 
 const About = () => {
-  const sectionRef = useRef(null)
-  const location = useLocation()
-  const { state, dispatch } = useSection()
+  const sectionRef = useRef(null);
+  const location = useLocation();
+  const { state, dispatch } = useSection();
 
   useEffect(() => {
-    dispatch({ type: 'SET_SECTION_REF', payload: sectionRef })
+    dispatch({ type: 'SET_SECTION_REF', payload: sectionRef });
     if (location.state && location.state.scrollToSection) {
-      const sectionElement = sectionRef.current
+      const sectionElement = sectionRef.current;
       if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: 'smooth' })
+        sectionElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [sectionRef, dispatch, location])
+  }, [sectionRef, dispatch, location]);
   return (
     <div
       ref={sectionRef}
@@ -99,7 +99,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
