@@ -15,7 +15,7 @@ import React, { useMemo } from 'react';
 // import '@solana/wallet-adapter-react-ui/styles.css';
 import '../wallet.css';
 const WalletContextProvider = ({ children }) => {
-  const network = WalletAdapterNetwork.Devnet;
+  const network = WalletAdapterNetwork.Mainnet;
   const endpoint = clusterApiUrl(network);
   const wallets = [
     new PhantomWalletAdapter(),
