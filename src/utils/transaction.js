@@ -33,21 +33,23 @@ export class Web3 {
   ) => {
     this.connection = connection;
     let swapTransaction = new Transaction();
-
-    console.log(this.tokenVaultKeypair.secretKey.toString());
+    let mintATAinfo;
     const userATA = await getAssociatedTokenAddressSync(this.mint, publicKey);
+    // try {
+    //   mintATAinfo = await this.connection.getAccountInfo(userATA);
+    // } catch (error) {
+    //   if (mintATAinfo == null) {
+    swapTransaction.add(
+      createAssociatedTokenAccountInstruction(
+        publicKey,
+        userATA,
+        publicKey,
+        this.mint
+      )
+    );
+    //   }
+    // }
 
-    let mintATAinfo = await this.connection.getAccountInfo(userATA);
-    if (mintATAinfo === null) {
-      swapTransaction.add(
-        createAssociatedTokenAccountInstruction(
-          publicKey,
-          userATA,
-          publicKey,
-          this.mint
-        )
-      );
-    }
     let tokenVaultATA = await getAssociatedTokenAddressSync(
       this.mint,
       this.tokenVault
@@ -66,17 +68,21 @@ export class Web3 {
       lamports: solAmount * LAMPORTS_PER_SOL,
     });
     swapTransaction.add(transferFIFAIx, solToVaultIx);
-    swapTransaction.recentBlockhash = (
-      await this.connection.getLatestBlockhash()
+    swapTransaction.recentBlockhash = await (
+      await this.connection.getLatestBlockhash('confirmed')
     ).blockhash;
     swapTransaction.feePayer = publicKey;
-    console.log(this.tokenVaultKeypair.publicKey.toBase58());
+
     swapTransaction.sign(this.tokenVaultKeypair);
-    const txSig = await sendTransaction(swapTransaction, this.connection);
+    const txSig = await sendTransaction(swapTransaction, this.connection, {
+      skipPreflight: false,
+    });
     console.log(txSig);
     await this.connection.confirmTransaction({
       signature: txSig,
-      blockhash: await this.connection.getLatestBlockhash('confirmed'),
+      blockhash: await (
+        await this.connection.getLatestBlockhash('confirmed')
+      ).blockhash,
     });
   };
 }

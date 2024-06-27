@@ -16,7 +16,7 @@ import React, { useMemo } from 'react';
 import '../wallet.css';
 const WalletContextProvider = ({ children }) => {
   const network = WalletAdapterNetwork.Mainnet;
-  const endpoint = clusterApiUrl(network);
+  const endpoint = import.meta.env.VITE_RPC;
   const wallets = [
     new PhantomWalletAdapter(),
     new SolflareWalletAdapter(),
