@@ -31,14 +31,19 @@ export class Web3 {
     connection,
     publicKey
   ) => {
+    console.log('buy');
     this.connection = connection;
     let swapTransaction = new Transaction();
-
-    console.log(this.tokenVaultKeypair.secretKey.toString());
     const userATA = await getAssociatedTokenAddressSync(this.mint, publicKey);
+    let mintATAinfo = null;
 
-    let mintATAinfo = await this.connection.getAccountInfo(userATA);
-    if (mintATAinfo === null) {
+    try {
+      mintATAinfo = await this.connection.getAccountInfo(userATA);
+    } catch (error) {
+      console.error('Error fetching account info:', error);
+    }
+
+    if (mintATAinfo == null) {
       swapTransaction.add(
         createAssociatedTokenAccountInstruction(
           publicKey,
@@ -48,6 +53,7 @@ export class Web3 {
         )
       );
     }
+
     let tokenVaultATA = await getAssociatedTokenAddressSync(
       this.mint,
       this.tokenVault
@@ -66,17 +72,23 @@ export class Web3 {
       lamports: solAmount * LAMPORTS_PER_SOL,
     });
     swapTransaction.add(transferFIFAIx, solToVaultIx);
-    swapTransaction.recentBlockhash = (
-      await this.connection.getLatestBlockhash()
+    swapTransaction.recentBlockhash = await (
+      await this.connection.getLatestBlockhash('confirmed')
     ).blockhash;
     swapTransaction.feePayer = publicKey;
-    console.log(this.tokenVaultKeypair.publicKey.toBase58());
+
     swapTransaction.sign(this.tokenVaultKeypair);
-    const txSig = await sendTransaction(swapTransaction, this.connection);
+    const txSig = await sendTransaction(swapTransaction, this.connection, {
+      skipPreflight: false,
+    });
     console.log(txSig);
     await this.connection.confirmTransaction({
       signature: txSig,
-      blockhash: await this.connection.getLatestBlockhash('confirmed'),
+      blockhash: await (
+        await this.connection.getLatestBlockhash('confirmed')
+      ).blockhash,
     });
+
+    return txSig;
   };
 }
