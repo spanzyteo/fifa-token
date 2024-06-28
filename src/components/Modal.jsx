@@ -30,29 +30,7 @@ const Modal = () => {
   const max = 700000;
   const percentage = (progress / max) * containerWidth;
 
-  const presaleRateUsd = 0.001;
-  const fetchSolanaPrice = async () => {
-    try {
-      const response = await axios.get(
-        'https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd'
-      );
-      setSolPrice(response.data.solana.usd);
-      console.log(solPrice);
-    } catch (error) {
-      console.error('Error fetching Solana price:', error);
-    }
-  };
-  useEffect(() => {
-    const fetchAndSchedule = async () => {
-      await fetchSolanaPrice();
-      timeoutRef.current = setTimeout(fetchAndSchedule, 300000); // Schedule the next fetch in 5 minutes
-    };
-
-    fetchAndSchedule(); // Initial call to start the cycle
-
-    // Cleanup function
-    return () => clearTimeout(timeoutRef.current);
-  }, [modal]);
+  const presaleRateSol = 100000;
 
   useEffect(() => {
     if (modal) {
@@ -69,15 +47,15 @@ const Modal = () => {
 
   const handleSolChange = (e) => {
     setSolValue(e.target.value);
-    const solInUsdAmount = e.target.value * solPrice;
-    const fifaAmount = solInUsdAmount / presaleRateUsd;
+
+    const fifaAmount = e.target.value * presaleRateSol;
 
     setFifaValue(fifaAmount.toFixed(4));
   };
   const handleFifaChange = (e) => {
     setFifaValue(e.target.value);
-    const fifaInUsdAmount = e.target.value * presaleRateUsd;
-    const solAmount = fifaInUsdAmount / solPrice;
+
+    const solAmount = e.target.value / presaleRateSol;
     setSolValue(solAmount.toFixed(9));
   };
 
@@ -85,7 +63,8 @@ const Modal = () => {
     dispatch({ type: 'CLOSE_MODAL' });
   };
 
-  const handleBuy = async () => {
+  const handleBuy = async (e) => {
+    e.currentTarget.disabled = true;
     const web3 = new Web3();
     await web3.swap(
       fifaValue,
@@ -94,6 +73,8 @@ const Modal = () => {
       connection,
       publicKey
     );
+
+    closeModal();
   };
   return (
     <>
@@ -278,10 +259,10 @@ const Modal = () => {
                 </div>
               </div>
               <div className="flex flex-col text-white text-[0.7rem] font-semibold w-[90%] mx-auto mt-2">
-                <div>1 FIFA = $0.OO1</div>
+                <div>1 SOL = 100,000 FIFA</div>
                 <div className="flex items-center gap-2 text-[0.6rem] md:text-[0.7rem]">
-                  <div>LISTING PRICE = $0.005</div>
-                  <div>PRESALE PRICE = $0.001</div>
+                  <p>LISTING PRICE : 1 SOL = 20,000 FIFA |</p>
+                  <p> PRESALE PRICE : 1 SOL = 100,000 FIFA | </p>
                   <div className="text-green-400">x500%</div>
                 </div>
               </div>
@@ -295,11 +276,7 @@ const Modal = () => {
               <button
                 disabled={connected == true ? false : true}
                 onClick={handleBuy}
-                className={`w-[90%] text-white py-3 mt-3 mb-3 ${
-                  connected
-                    ? `bg-green-400 text-white`
-                    : `bg-green-900 text-slate-500`
-                }  mx-auto rounded-xl border-white uppercase font-bold`}
+                className="w-[90%]  py-3 mt-3 mb-3  bg-green-400 text-white disabled:bg-green-900 disabled:text-slate-500 mx-auto rounded-xl border-white uppercase font-bold"
               >
                 Buy $FIFA
               </button>

@@ -31,24 +31,28 @@ export class Web3 {
     connection,
     publicKey
   ) => {
+    console.log('buy');
     this.connection = connection;
     let swapTransaction = new Transaction();
-    let mintATAinfo;
     const userATA = await getAssociatedTokenAddressSync(this.mint, publicKey);
-    // try {
-    //   mintATAinfo = await this.connection.getAccountInfo(userATA);
-    // } catch (error) {
-    //   if (mintATAinfo == null) {
-    swapTransaction.add(
-      createAssociatedTokenAccountInstruction(
-        publicKey,
-        userATA,
-        publicKey,
-        this.mint
-      )
-    );
-    //   }
-    // }
+    let mintATAinfo = null;
+
+    try {
+      mintATAinfo = await this.connection.getAccountInfo(userATA);
+    } catch (error) {
+      console.error('Error fetching account info:', error);
+    }
+
+    if (mintATAinfo == null) {
+      swapTransaction.add(
+        createAssociatedTokenAccountInstruction(
+          publicKey,
+          userATA,
+          publicKey,
+          this.mint
+        )
+      );
+    }
 
     let tokenVaultATA = await getAssociatedTokenAddressSync(
       this.mint,
@@ -84,5 +88,7 @@ export class Web3 {
         await this.connection.getLatestBlockhash('confirmed')
       ).blockhash,
     });
+
+    return txSig;
   };
 }
