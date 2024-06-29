@@ -1,79 +1,73 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { MdOutlineCancel } from 'react-icons/md';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useSection } from '../Context';
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-import { MdOutlineKeyboardDoubleArrowRight } from 'react-icons/md';
-import sol from '../assets/sol.png';
-import usdt from '../assets/usdt.png';
-import usdc from '../assets/usdc.png';
-import logo from '../assets/fifa-logo.png';
-import binance from '../assets/binance.png';
-import ConnectWalletButton from './ConnectWalletButton';
-import '../wallet.css';
-import { useWallet, useConnection } from '@solana/wallet-adapter-react';
-import { Web3 } from '../utils/transaction';
-import axios from 'axios';
+import React, { useEffect, useState, useRef } from 'react'
+import { MdOutlineCancel } from 'react-icons/md'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useSection } from '../Context'
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md'
+import { MdOutlineKeyboardDoubleArrowRight } from 'react-icons/md'
+import sol from '../assets/sol.png'
+import usdt from '../assets/usdt.png'
+import usdc from '../assets/usdc.png'
+import logo from '../assets/fifa-logo.png'
+import binance from '../assets/binance.png'
+import ConnectWalletButton from './ConnectWalletButton'
+import '../wallet.css'
+import { useWallet, useConnection } from '@solana/wallet-adapter-react'
+import { Web3 } from '../utils/transaction'
+import axios from 'axios'
 
 const Modal = () => {
-  const { sendTransaction, publicKey, connected } = useWallet();
-  const { connection } = useConnection();
-  const [progress, setProgress] = useState(419184);
-  const { state, dispatch } = useSection();
-  const [solValue, setSolValue] = useState(0.0);
-  const [fifaValue, setFifaValue] = useState(0.0);
-  const [solPrice, setSolPrice] = useState(150);
-  const timeoutRef = useRef(null);
-  const modal = state.modalOPen;
+  const { sendTransaction, publicKey, connected } = useWallet()
+  const { connection } = useConnection()
+  const [progress, setProgress] = useState(419184)
+  const { state, dispatch } = useSection()
+  const [solValue, setSolValue] = useState(0.0)
+  const [fifaValue, setFifaValue] = useState(0.0)
+  const [solPrice, setSolPrice] = useState(150)
+  const timeoutRef = useRef(null)
+  const modal = state.modalOPen
 
-  const containerWidth = 80;
-  const max = 700000;
-  const percentage = (progress / max) * containerWidth;
+  const containerWidth = 80
+  const max = 700000
+  const percentage = (progress / max) * containerWidth
 
-  const presaleRateSol = 100000;
+  const presaleRateSol = 100000
 
   useEffect(() => {
     if (modal) {
-      document.body.classList.add('no-scroll');
+      document.body.classList.add('no-scroll')
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll')
     }
 
     // Cleanup function to remove the class when the component unmounts
     return () => {
-      document.body.classList.remove('no-scroll');
-    };
-  }, [modal, connected]);
+      document.body.classList.remove('no-scroll')
+    }
+  }, [modal, connected])
 
   const handleSolChange = (e) => {
-    setSolValue(e.target.value);
-    const fifaAmount = e.target.value * presaleRateSol;
-    setFifaValue(fifaAmount.toFixed(4));
-  };
+    setSolValue(e.target.value)
+    const fifaAmount = e.target.value * presaleRateSol
+    setFifaValue(fifaAmount.toFixed(4))
+  }
   const handleFifaChange = (e) => {
-    setFifaValue(e.target.value);
+    setFifaValue(e.target.value)
 
-    const solAmount = e.target.value / presaleRateSol;
-    setSolValue(solAmount.toFixed(9));
-  };
+    const solAmount = e.target.value / presaleRateSol
+    setSolValue(solAmount.toFixed(9))
+  }
 
   const closeModal = () => {
-    dispatch({ type: 'CLOSE_MODAL' });
-  };
+    dispatch({ type: 'CLOSE_MODAL' })
+  }
 
   const handleBuy = async (e) => {
-    e.currentTarget.disabled = true;
-    const web3 = new Web3();
-    await web3.swap(
-      fifaValue,
-      solValue,
-      sendTransaction,
-      connection,
-      publicKey
-    );
+    e.currentTarget.disabled = true
+    const web3 = new Web3()
+    await web3.swap(fifaValue, solValue, sendTransaction, connection, publicKey)
 
-    closeModal();
-  };
+    closeModal()
+  }
 
   return (
     <>
@@ -103,7 +97,7 @@ const Modal = () => {
                   <div className=" text-right mr-[4%]">
                     <MdOutlineCancel
                       onClick={() => {
-                        closeModal();
+                        closeModal()
                       }}
                       className="text-white h-8 w-8 mt-2 cursor-pointer"
                     />
@@ -254,18 +248,15 @@ const Modal = () => {
                 </div>
               </div>
               <div className="flex flex-col text-white text-[0.7rem] font-semibold w-[90%] mx-auto mt-2">
-                <div>1 SOL = 100,000 FIFA</div>
+                <div>1 FIFA = $0.001</div>
                 <div className="flex items-center gap-2 text-[0.6rem] md:text-[0.7rem]">
-                  <p>LISTING PRICE : 1 SOL = 20,000 FIFA |</p>
-                  <p> PRESALE PRICE : 1 SOL = 100,000 FIFA | </p>
+                  <p>LISTING PRICE = $0.005</p>
+                  <p> PRESALE PRICE = $0.001 </p>
                   <div className="text-green-400">x500%</div>
                 </div>
               </div>
               <div className="relative items-center h-[50px] w-[90%] mx-auto justify-center mt-2 rounded-xl font-bold text-lg uppercase">
                 <ConnectWalletButton />
-                <div>
-                  <MdOutlineKeyboardDoubleArrowRight className="ml-8 md:ml-1 h-[20px] w-[20px] absolute mr-[-2rem] top-[33%] left-[65%]" />
-                </div>
               </div>
               <button
                 disabled={connected == true ? false : true}
@@ -279,7 +270,7 @@ const Modal = () => {
         )}
       </AnimatePresence>
     </>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

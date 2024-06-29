@@ -14,18 +14,13 @@ const FirstBody = () => {
   };
   return (
     <>
-      <div className="flex h-[500px] overflow-hidden ">
-        {/* <img
-          className="h-full w-full relative block lg:hidden object-cover"
-          src={wallpaper}
-          alt="wallpaper"
-        /> */}
+      <div className="flex h-[500px] relative overflow-hidden ">
         <div className="block lg:hidden w-[100%] h-[100%]">
-          <video autoPlay loop muted className="mx-auto relative w-full">
+          <video autoPlay loop muted className="mx-auto w-full">
             <source src={gif} type="video/mp4" />
           </video>
         </div>
-        <div className="absolute text-white top-[18%] lg:hidden flex flex-col ml-2">
+        <div className="absolute text-white top-[10%] lg:hidden flex flex-col ml-2">
           <h1 className=" font-bold text-3xl uppercase text-white whitespace-nowrap">
             Bring <span className="text-green-400">Your</span>
             <span className=" text-yellow-400"> Skills </span>
@@ -34,14 +29,14 @@ const FirstBody = () => {
             To <span className="text-green-400">Blockchain</span>
           </h1>
           <p className=" mt-4 w-[320px] ml-1 font-semibold">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            fuga{' '}
+            Meet FIFA stream, the disruptor in the $treaming crypto space! Bring
+            your skills to the blockchain and build wealth Now!
           </p>
         </div>
-        <div className="absolute top-[52%] ml-4 block lg:hidden">
+        <div className="absolute top-[55%] ml-4 block lg:hidden">
           <button
             onClick={() => {
-              openModal();
+              openModal()
             }}
             className="text-white text-3xl border-2 p-3 px-7  rounded-full font-bold border-green-400 hover:bg-green-400 hover:border-white hover:text-black hover:font-bold transition duration-300 ease active:opacity-70"
           >
@@ -57,15 +52,15 @@ const FirstBody = () => {
             <h1 className="font-bold text-5xl text-white mt-5">
               To <span className="text-green-400">Blockchain</span>
             </h1>
-            <p className=" mt-6 w-[450px] text-white ml-1 ">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-              fuga{' '}
+            <p className=" mt-4 w-[450px] text-white ml-1 ">
+              Meet FIFA stream, the disruptor in the $treaming crypto space!
+              Bring your skills to the blockchain and build wealth Now!
             </p>
             <button
               onClick={() => {
-                openModal();
+                openModal()
               }}
-              className="text-white p-3 border-2 border-green-400 mt-6 text-3xl rounded-full px-6 hover:bg-yellow-400 hover:text-black font-semibold hover:border-white active:opacity-80 transition duration-300 ease"
+              className="text-white p-3 border-2 border-green-400 mt-4 text-3xl rounded-full px-6 hover:bg-yellow-400 hover:text-black font-semibold hover:border-white active:opacity-80 transition duration-300 ease"
             >
               Buy Now
             </button>
@@ -110,7 +105,7 @@ const FirstBody = () => {
         />
       </div>
     </>
-  );
+  )
 };
 
 export default FirstBody;
