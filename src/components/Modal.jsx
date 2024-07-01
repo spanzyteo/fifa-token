@@ -24,6 +24,10 @@ const Modal = () => {
   const [fifaValue, setFifaValue] = useState(0.0)
   const [solPrice, setSolPrice] = useState(150)
   const timeoutRef = useRef(null)
+  const [days, setDays] = useState(0)
+  const [hours, setHours] = useState(0)
+  const [minutes, setMinutes] = useState(0)
+  const [seconds, setSeconds] = useState(0)
   const modal = state.modalOPen
 
   const containerWidth = 80
@@ -31,6 +35,38 @@ const Modal = () => {
   const percentage = (progress / max) * containerWidth
 
   const presaleRateSol = 100000
+
+  const targetDate = new Date("2024-10-30T00:00:00")
+
+  const calculateTimeLeft = () => {
+    const difference = targetDate - new Date()
+    let timeLeft = {}
+
+    if (difference > 0) {
+      timeLeft = {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      }
+    }
+
+    return timeLeft
+  }
+
+  useEffect(() => {
+    const updateCountDown = () => {
+      const timeLeft = calculateTimeLeft()
+      setDays(timeLeft.days || 0)
+      setHours(timeLeft.hours || 0)
+      setMinutes(timeLeft.minutes || 0)
+      setSeconds(timeLeft.seconds || 0)
+    }
+
+    const timer = setInterval(updateCountDown, 1000)
+
+    return () => clearInterval(timer)
+  },[])
 
   useEffect(() => {
     if (modal) {
@@ -174,19 +210,19 @@ const Modal = () => {
                 </div>
                 <div className="flex items-center justify-center mt-2 gap-4">
                   <div className="flex flex-col items-center">
-                    <h1 className=" text-yellow-400 font-bold text-xl">100</h1>
+                    <h1 className=" text-yellow-400 font-bold text-xl">{days}</h1>
                     <h1 className="text-white font-semibold">days</h1>
                   </div>
                   <div className="flex flex-col items-center">
-                    <h1 className=" text-yellow-400 font-bold text-xl">3</h1>
+                    <h1 className=" text-yellow-400 font-bold text-xl">{hours}</h1>
                     <h1 className="text-white font-semibold">hours</h1>
                   </div>
                   <div className="flex flex-col items-center">
-                    <h1 className=" text-yellow-400 font-bold text-xl">32</h1>
+                    <h1 className=" text-yellow-400 font-bold text-xl">{minutes}</h1>
                     <h1 className="text-white font-semibold">mins</h1>
                   </div>
                   <div className="flex flex-col items-center">
-                    <h1 className=" text-yellow-400 font-bold text-xl">27</h1>
+                    <h1 className=" text-yellow-400 font-bold text-xl">{seconds}</h1>
                     <h1 className="text-white font-semibold">secs</h1>
                   </div>
                 </div>

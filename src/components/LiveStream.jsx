@@ -1,24 +1,67 @@
-import React from 'react';
-import gif1 from '../assets/gif.mp4';
-import livestream from '../assets/livestream.png';
-import wallpaper from '../assets/fifa-wallpaper2.jpg';
+import React from 'react'
+import fif1 from '../assets/fif-1.png'
+import fif2 from '../assets/fif-2.png'
+import fif3 from '../assets/fif-3.png'
+import fif4 from '../assets/fif-4.png'
+import fif5 from '../assets/fif-5.png'
+import gif1 from '../assets/gif.mp4'
+import livestream from '../assets/livestream.png'
+import wallpaper from '../assets/fifa-wallpaper2.jpg'
 
 const LiveStream = () => {
   return (
-    <div className="lg:hidden flex h-[500px] overflow-hidden">
-      <div className=" w-[100%] h-full relative">
-        <video autoPlay loop muted className="w-full  object-contain">
-          <source src={gif1} type="video/mp4" />
-        </video>
-        <img
-          src={livestream}
-          alt="live-stream"
-          className="absolute top-[-2rem] left-[-1rem] h-[150px] w-[150px]"
-        />
-        <div className="absolute sm:top-[2%] sm:left-[14%] left-[7rem] top-[1rem] h-[20px] w-[20px] rounded-full bg-green-500"></div>
+    <div className=' overflow-hidden'>
+      <div className="sm:hidden marquee mt-4">
+        <div className="marquee-inner">
+          <div className="pic-container">
+            <img src={fif1} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif2} alt="fif-1" className="" id="height" />
+          </div>
+          <div className="pic-container">
+            <img src={fif3} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif4} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif5} alt="fif-1" className="" id="height2" />
+          </div>
+          <div className="pic-container">
+            <img src={fif1} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif2} alt="fif-1" className="" id="height" />
+          </div>
+          <div className="pic-container">
+            <img src={fif3} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif4} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif5} alt="fif-1" className="" id="height2" />
+          </div>
+          <div className="pic-container">
+            <img src={fif1} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif2} alt="fif-1" className="" id="height2" />
+          </div>
+          <div className="pic-container">
+            <img src={fif3} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif4} alt="fif-1" className="" />
+          </div>
+          <div className="pic-container">
+            <img src={fif5} alt="fif-1" className="" id="height2" />
+          </div>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LiveStream;
+export default LiveStream
