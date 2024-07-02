@@ -5,13 +5,12 @@ import fif3 from '../assets/fif-3.png'
 import fif4 from '../assets/fif-4.png'
 import fif5 from '../assets/fif-5.png'
 import gif1 from '../assets/gif.mp4'
-import livestream from '../assets/livestream.png'
-import wallpaper from '../assets/fifa-wallpaper2.jpg'
 
 const LiveStream = () => {
   return (
-    <div className=' overflow-hidden'>
-      <div className="sm:hidden marquee mt-4">
+    <div className="sm:hidden mt-8 overflow-hidden">
+      <h1 className='text-white font-angel uppercas text-5xl font-bold text-center'>Nft Hall Of Fame</h1>
+      <div className="marquee mt-4">
         <div className="marquee-inner">
           <div className="pic-container">
             <img src={fif1} alt="fif-1" className="" />

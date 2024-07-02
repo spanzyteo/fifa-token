@@ -21,7 +21,7 @@ body {
 .marquee {
   overflow: hidden;
   width: 200%;
-  max-width: 800px;
+  max-width: 721px;
   position: relative;
 }
 
@@ -67,6 +67,13 @@ body {
 @font-face {
   font-family: 'fugaz-one';
   src: url('./font/spantaran.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'angel';
+  src: url('./font/angel.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }

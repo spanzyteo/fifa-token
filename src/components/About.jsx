@@ -2,8 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import bellingham from '../assets/bellingham.png';
 import { useSection } from '../Context';
-import gif1 from '../assets/gif.mp4';
-import livestream from '../assets/livestream.png';
 
 const About = () => {
   const sectionRef = useRef(null);
@@ -40,56 +38,56 @@ const About = () => {
           About FIFA Stream
         </h1>
         <div className="flex flex-col gap-4 mt-8">
-          <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
+          <div className="flex h-[100px] items-center justify-center px-4 md:w-[500px] sm:w-[100%] w-[95%] mx-auto bg-yellow-400 rounded-2xl">
             <div className="">
               <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
                 INNOVATION
               </h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[150px] md:w-[350px]">
+            <div className="ml-2 text-[11px]  md:text-[16px] font-semibold w-[180px] md:w-[350px] sm:w-[300px] text-center">
               <p>
                 FIFA Stream is pioneering the future of streaming rewards with
                 cutting-edge technology.{' '}
               </p>
             </div>
           </div>
-          <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
+          <div className="flex h-[100px] items-center justify-center px-4 md:w-[500px] sm:w-[100%] w-[95%] mx-auto bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
+              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg w-[250px]">
                 CELEBRITY ENDORSEMENT
               </h1>
             </div>
-            <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[150px] md:w-[350px]">
+            <div className="h-[20px] bg-black w-[1px] sm:ml-[-2rem] ml-[-5rem]"></div>
+            <div className="ml-2 text-[11px]  md:text-[16px] font-semibold w-[150px] md:w-[350px] text-center">
               <p>
                 Endorsed by Snoop Dogg, FIFA Stream has star power and
                 credibility.
               </p>
             </div>
           </div>
-          <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
+          <div className="flex h-[100px] items-center justify-center px-4 md:w-[500px] sm:w-[100%] w-[95%] mx-auto bg-yellow-400 rounded-2xl">
             <div className="">
               <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
                 REWARDS
               </h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[200px] md:w-[350px]">
+            <div className="ml-2 text-[11px]  md:text-[16px] font-semibold w-[200px] md:w-[350px] text-center">
               <p>
                 Our platform offers amazing rewards to streamers, incentivizing
                 quality content.
               </p>
             </div>
           </div>
-          <div className="flex h-[100px] items-center px-4 md:w-[500px] w-[100%] bg-yellow-400 rounded-2xl">
+          <div className="flex h-[100px] items-center justify-center px-4 md:w-[500px] sm:w-[100%] w-[95%] mx-auto bg-yellow-400 rounded-2xl">
             <div className="">
-              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center">
+              <h1 className="font-semibold md:font-bold uppercase md:text-2xl text-lg text-center w-[120px] md:w-[160px]">
                 STREAMING PLATFORM
               </h1>
             </div>
             <div className="h-[20px] bg-black w-[1px] ml-4"></div>
-            <div className="ml-2 text-[11px]  md:text-[16px] md:font-semibold w-[150px] md:w-[400px]">
+            <div className="ml-2 text-[11px]  md:text-[16px] font-semibold w-[180px] md:w-[400px] text-center">
               <p>
                 Our state-of-the-art streaming service is set to launch soon,
                 bringing exciting new opportunities for streamers.
@@ -99,7 +97,7 @@ const About = () => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default About;
