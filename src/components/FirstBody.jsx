@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from '../assets/fifa-logo.png';
 import ConnectWalletButton from './ConnectWalletButton';
-import wallpaper from '../assets/fifa-wallpaper2.jpg';
 import ronaldo from '../assets/ronaldo.png';
 import gif from '../assets/gif1.mp4';
 import { useSection } from '../Context';
