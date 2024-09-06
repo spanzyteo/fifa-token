@@ -5,6 +5,8 @@ const initialState = {
   sectionTwoRef: null,
   sideBarOpen: false,
   modalOPen: false,
+  renderModal: false,
+  purchaseModal: false,
 };
 
 const SectionContext = createContext();
@@ -23,6 +25,14 @@ const sectionReducer = (state, action) => {
       return { ...state, modalOPen: true };
     case 'CLOSE_MODAL':
       return { ...state, modalOPen: false };
+    case 'OPEN_INITIAL_MODAL':
+      return { ...state, renderModal: true};
+    case 'CLOSE_INITIAL_MODAL':
+      return { ...state, renderModal: false};
+    case 'OPEN_PURCHASE_MODAL' :
+      return { ...state, purchaseModal: true};
+    case 'CLOSE_PURCHASE_MODAL' :
+      return { ...state, purchaseModal: false};
     default:
       return state;
   }

@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Modal from './components/Modal';
+import InitialModal from './components/InitialModal';
+import PurchaseModal from './components/PurchaseModal';
 
 const App = () => {
   return (
@@ -12,6 +14,8 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       <Modal />
+      <InitialModal />
+      <PurchaseModal />
     </div>
   );
 };

@@ -1,16 +1,22 @@
-import React from 'react';
-import logo from '../assets/fifa-logo.png';
-import ConnectWalletButton from './ConnectWalletButton';
-import ronaldo from '../assets/ronaldo.png';
-import gif from '../assets/gif1.mp4';
-import { useSection } from '../Context';
+import React from 'react'
+import logo from '../assets/fifa-logo.png'
+import ConnectWalletButton from './ConnectWalletButton'
+import ronaldo from '../assets/ronaldo.png'
+import gif from '../assets/gif1.mp4'
+import { useSection } from '../Context'
 
 const FirstBody = () => {
-  const { state, dispatch } = useSection();
+  const { state, dispatch } = useSection()
+
   const openModal = () => {
-    dispatch({ type: 'OPEN_MODAL' });
-    console.log('modal open');
-  };
+    dispatch({ type: 'OPEN_MODAL' })
+  }
+
+  const openPurchaseModal = () => {
+    dispatch({ type: 'OPEN_PURCHASE_MODAL' })
+  }
+
+  const purchaseModal = state.purchaseModal
   return (
     <>
       <div className="flex h-[500px] relative overflow-hidden ">
@@ -41,8 +47,16 @@ const FirstBody = () => {
           >
             Buy Now
           </button>
+          <h1
+            onClick={() => {
+              openPurchaseModal()
+            }}
+            className="text-white mt-4 ml-2 hover:text-yellow-400 hover:underline cursor-pointer font-semibold underline"
+          >
+            How To Purchase
+          </h1>
         </div>
-        <div className="lg:flex flex-row hidden px-24 justify-between items-center">
+        <div className="lg:flex flex-row hidden px-24 justify-between items-center mt-[-3rem]">
           <div className="">
             <h1 className=" font-bold text-5xl text-white whitespace-nowrap">
               Bring <span className="text-green-400">Your</span>
@@ -63,12 +77,20 @@ const FirstBody = () => {
             >
               Buy Now
             </button>
+            <h1
+              onClick={() => {
+                openPurchaseModal()
+              }}
+              className="text-white mt-2  ml-2 hover:text-yellow-400 hover:underline cursor-pointer"
+            >
+              How To Purchase
+            </h1>
           </div>
           <div className="">
             <img
               src={ronaldo}
               alt="ronaldo"
-              className=" h-[450px] w-[380px] ml-[270px] mt-10 "
+              className=" h-[450px] w-[380px] ml-[270px] mt-24 "
             />
           </div>
         </div>
@@ -105,6 +127,6 @@ const FirstBody = () => {
       </div>
     </>
   )
-};
+}
 
-export default FirstBody;
+export default FirstBody
